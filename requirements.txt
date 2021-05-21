@@ -1,0 +1,4 @@
+torch
+torchvision  # if you want to run the MNIST example, otherwise unnecessary
+pytorch-lightning>=1.3.0
+torchmetrics>=0.3.0
