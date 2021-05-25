@@ -20,7 +20,7 @@ def main(args):
 
     trainer = pl.Trainer.from_argparse_args(args, callbacks=[pl.callbacks.ModelCheckpoint(monitor="Val_Loss")])
     trainer.fit(task, dm)
-    results = trainer.test(task, datamodule=dm)
+    results = trainer.test()
     return results
 
 
