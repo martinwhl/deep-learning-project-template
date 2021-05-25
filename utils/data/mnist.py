@@ -11,9 +11,7 @@ class MNISTDataModule(pl.LightningDataModule):
         super(MNISTDataModule, self).__init__()
         self.data_dir = data_dir
         self.batch_size = batch_size
-        self.transform = transforms.Compose(
-            [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
-        )
+        self.transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
         # self.dims is returned when you call dm.size()
         # Setting default dims here because we know them.
         # Could optionally be assigned dynamically in dm.setup()
@@ -35,9 +33,7 @@ class MNISTDataModule(pl.LightningDataModule):
 
         # Assign test dataset for use in dataloader(s)
         if stage == "test" or stage is None:
-            self.mnist_test = MNIST(
-                self.data_dir, train=False, transform=self.transform
-            )
+            self.mnist_test = MNIST(self.data_dir, train=False, transform=self.transform)
 
             # Optionally...
             # self.dims = tuple(self.mnist_test[0][0].shape)
